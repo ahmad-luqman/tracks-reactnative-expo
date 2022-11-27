@@ -1,4 +1,5 @@
 import React from "react";
+import { LogBox } from "react-native";
 import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import { createBottomTabNavigator } from "react-navigation-tabs";
@@ -11,6 +12,10 @@ import TrackListScreen from "./src/screens/TrackListScreen";
 import { Provider as AuthProvider } from "./src/context/AuthContext";
 import { setNavigator } from "./src/navigationRef";
 import ResolveAuthScreen from "./src/screens/ResolveAuthScreen";
+
+// This help to ignore error _reactNative.Dimensions.removeEventListener
+// This happens because i use react-navigation@v4 with latest Expo and react-native npm
+LogBox.ignoreLogs(["_reactNative.Dimensions.removeEventListener"]);
 
 const switchNavigator = createSwitchNavigator({
   ResolveAuth: ResolveAuthScreen,
