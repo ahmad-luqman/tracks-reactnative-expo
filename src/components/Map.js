@@ -11,13 +11,17 @@ const Map = () => {
     return <ActivityIndicator size="large" style={{ marginTop: 200 }} />;
   }
 
+  initialLocation = {
+    longitude: -122.0312186,
+    latitude: 37.33233141,
+  };
   return (
     <MapView
       style={styles.map}
       initialRegion={{
-        ...currentLocation.coords,
-        longitudeDelta: 0.01,
+        ...initialLocation,
         latitudeDelta: 0.01,
+        longitudeDelta: 0.01,
       }}
     >
       <Circle
